@@ -1,0 +1,20 @@
+ task groovy << {}
+
+class Example {
+   def name = "dibya"
+   def greet() {
+      println "Welcome $name"
+   }
+}
+
+def closure = {
+    // closure will have access to the class variable and func if we declare the instance as a delegate of the closure. SEE LINE# 19
+    println "Inside Closure"
+    name = "Jyoti"
+    greet()
+}
+//groovy automatically creates getters and setters for you
+Example e = new Example();
+e.greet()
+closure.delegate = e;
+closure()

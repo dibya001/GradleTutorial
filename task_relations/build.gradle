@@ -1,0 +1,58 @@
+// tasks need to be order to maintain dependencies
+
+// 3 ways
+
+// taskA depends on taskB -> taskA can't do its work without taskB
+
+
+task putOnSocks {
+   doLast  {
+     println "Putting on socks"
+   }
+}
+
+task putOnShoes {
+   dependsOn putOnSocks
+   doLast { 
+     println "Putting on shoes"
+  }
+
+}
+
+// taskA is finalized by taskB -> everytime taskA runs after that taskB should run
+
+
+task washMouth {
+  doLast { 
+     println "Washing mouth"
+   }
+}
+task eatFood {
+  finalizedBy washMouth
+  doLast {
+   println "Eating food"
+  }
+}
+
+// taskA shouldRunAfter taskB -> no direct relation between taskA and taskB. However, taskA shouldn't run before taskB
+task haveShower {
+   doLast {
+    println "Having shower"
+  }
+}
+
+
+task putOnPerfume{
+  shouldRunAfter haveShower
+  doLast {
+   println "Putting on Perfume"
+  }
+}
+
+
+task getReady {
+
+   // multiple dependecies
+   dependsOn = [ haveShower, eatFood, putOnShoes]
+
+}

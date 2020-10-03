@@ -1,0 +1,28 @@
+ // closure is similar to functions
+
+// It can be declared with curly braces. assigned to a variable and passed around
+
+task groovy << {}
+// closure can access variables from their enclosing scope
+def foo = " Dibya"
+def closure1 = {
+  println "Hello from Closure $foo"
+}
+def lamdatype = {x -> x+x}
+closure1()
+def bar = closure1
+println lamdatype(5)
+
+// groovy also supports higher order functions
+
+def func(fun, val) {
+   println "Inside higher order function"
+   fun(val)
+}
+def anotherhoc(fun) {
+   println "inside another hoc"
+   fun()
+}
+
+println(func(lamdatype,20))
+anotherhoc(closure1)

@@ -1,0 +1,9 @@
+ task copyFiles(type: Copy ) { // typed tasks -> provided inbuilt by gradle. we need to specify type paramter
+    from '../lists'
+    into 'abcde'
+    include '*.gradle'
+    exclude '*.ab'
+}
+task deleteTask(type: Delete) {
+    delete 'abcd'
+}

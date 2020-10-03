@@ -1,0 +1,37 @@
+// Use gradle tasks --all command to view all the tasks
+project.task("Task1")
+// entire build script delegates to project object
+task "Task2"
+
+// You can also omit the quotation mark
+
+task Task3
+
+Task2.description = "Description of task2"
+// Most important thing for a task is the set of action it performs
+
+Task2.doLast {
+    println "Hello World"
+}
+// We can also use left shift operator for doLast
+
+Task2 << {println "Hii"}
+
+//doFirst adds the action to the front of the queue
+
+Task2.doFirst {
+   println "Init"
+}
+
+// configuration closure of a task
+
+
+task Task4 {
+
+   description "This is task4 " // This is actually a function call description() ; but we can omit parenthesis
+ // Also we can omit equals sign when assigning a variable such as below
+   group "This is shown as heading in a separate group in gradle tasks --all command"
+   doFirst {
+     println "Task4 commencing"
+   }
+}

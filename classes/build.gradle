@@ -1,0 +1,15 @@
+ task groovy << {}
+
+class Example {
+   def name = "dibya"
+   def greet() {
+      println "Welcome $name"
+   }
+}
+
+// groovy automatically creates getters and setters for you
+Example e = new Example();
+println(e.name)
+e.greet()
+e.name = "Jyoti"
+e.greet()

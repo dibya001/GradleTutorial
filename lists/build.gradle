@@ -1,0 +1,21 @@
+task groovy << {}
+
+def lst1 = [1,2,4,5,6]
+
+def fun = {x -> println "the list value is $x"}
+
+lst1.each(fun)
+
+// inline closures. Similar to kotlin
+
+println("--------------")
+
+lst1.each({x -> println "val is $x"})
+
+// You can omit the parentheis
+
+lst1.each{x-> println "value is $x"}
+
+// default iterator is it. similar to it
+
+lst1.each{println "val is $it"}
