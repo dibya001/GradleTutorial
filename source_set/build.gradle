@@ -1,0 +1,12 @@
+ apply plugin: 'java'
+ // by default 'java' plugin assumes the source files to be located at src/main/java
+ // if we want to use a source file at different location, we need to mention them under
+ // sourceSets as following.
+ sourceSets {
+     main {
+        java { 
+          srcDir 'src'
+        }
+     }
+} 
+

@@ -1,0 +1,56 @@
+*Gradle*
+	• Build system for android. Its open source
+	• It supports groovy base DSL. 
+	• Gradle is the dominant multiplatform build system
+	• Other build management tools include ANT, Maven. Both of which used XML for writing build specification. 
+	• Task
+		○ It is the self-contained unit of work in Gradle
+		○ Ex : print hello, compile java sources, copy files
+		○ A task has inputs and outputs
+		○ A task has also certain dependencies
+	• The way gradlewrapper works is, when you invoke it with a gradle command, it will check to see if gradle is installed or not, if it is not it will download gradle for you.
+	• See list of available tasks -> gradle tasks
+	• Gradlewrapper is a shell script for Linux/mac and a bat file for windows
+	• Gradle invocation can take a lot of time because it invokes jvm. Ideally we should run a gradle daemon which will continuously be running in the background and it will use same instance of jvm and can save a lot of startup time
+	• Gradle build script is declarative. Which means we just need to declare our build. Gradle automatically knows how to do the actual build.
+	• Gradle plugins can be written in any JVM Language i.e. java, groovy, scala
+	• Entire build script in gradle build is a delegate of project object. For example -> task = project.task
+	• Gradle compares the inputs to the snapshot and outputs the snapshots, if they match, the task is said to be up-to-date
+	• Parametrize build
+		○ Cmd args
+		○ Env variables
+		○ Gradle.properties
+	• Gradle does all its work in 3 phases
+		○ Initialization -> mainly useful for multi project build. Gradle looks at the settings.gradle file in order to identify the different projects. At the end of the initialization phase, Gradle creates an instance of org.gradle.api.Project corresponding to each of these projects.
+		○ Configuration -> gradle processes all the build scripts, scans all the tasks and creates a DAG of dependency/relation between tasks
+		○ Execution -> Actual Build task is performed.
+	• Plugin -> gradle plugins are just re-usable components
+	• Gradle can take care of downloading your dependencies with latest or specified version either from your organization's repository or any public repository. It can also take care of transitive dependencies
+	• Most prominent repositories are maven Central() or jcenter() Anyone can upload artifacts into these repositories. Gradle knows how to retrive  dependencies from all these repositories. And also if you have multiple projects with the same dependencies, it will be downloaded only once. 
+	• After defining repositories, now we can declare dependencies on the artifacts contained within those repositories. These are called external module dependencies
+	• Gradle dependencies -> generates dependencies report
+	• Generate insight dependency report to find out conflict
+		○ Gradle dependencyInsight --dependency <name>
+	• Build.gradle file is similar to pom.xml file of maven
+	• To run test - gradle test
+	•  the reports of these tests are located in build/reports/html folder containing the detailed stacktrace
+	• Gradlewrapper consists of 4 components
+		○ Shell script for linux/mac
+		○ Bat file for windows
+		○ Properties file
+		○ Jar file
+	• This plug-ins assume a certain setup of your Java project (similar to Maven).
+		○ src/main/java contains the Java source code
+		○ src/test/java contains the Java tests
+	
+	Gradle init --type pom command can be used to convert maven project to gradle project from pom.xml file
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
