@@ -1,0 +1,7 @@
+task helloworld << {
+    // we can pass the properties through gradle.properties file, cmd line or env variable
+    // you can pass the variable through cmd  as gradle <task_name> -P<property_name>=<value>
+    println greeting
+    println greet
+}
+

@@ -1,0 +1,14 @@
+class CTask extends DefaultTask {
+    
+    String name;
+    // actions must be annotated with @TaskAction annotation
+    @TaskAction
+    void doAction() {
+     println "Hello $name"
+    }
+
+}
+ 
+task customT(type: CTask) {
+    name = "dibya" // configuarable properties
+}

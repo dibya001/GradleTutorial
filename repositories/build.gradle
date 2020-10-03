@@ -1,0 +1,23 @@
+repositories {
+   mavenCentral()
+   jcenter()
+}
+repostiories {
+   maven {
+    url  '<url name>'
+  }
+}
+// after decalring repositories, we can define dependencies on the artifacts contained within these repos
+// Below is an example of closure, dependencies() is a method that takes a runnable block of code called as closure as its parameter
+
+dependencies {
+   //syntax -> <dependency group> <name>
+   // different dependencies may be needed at different build time, which are called configuration
+   // for example -> compile is a configuration. similarly testCompile, runtime, etc,
+   compile 'com.google.android.random.foo:4.12'
+   testCompile 'junit jar'
+   // also we can add files as dependencies
+   compile files('b/c.jar', 'f.jar')
+   // directories
+   compile trees(dir: 'libs' include: '*.jar')
+}

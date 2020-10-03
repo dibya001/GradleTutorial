@@ -1,0 +1,8 @@
+apply plugin: "java" // This is the pre existing java plugin, which already has defined tasks to compile the sources, create jars, create docs, run tests etc.
+// We can directly use this plugin instead of writing our tasks and their actions
+// The tasks include ->
+   // assemble
+   // test
+   // build
+   // check
+   // clean
